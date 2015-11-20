@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Made by DiDA for iOSGods.com! - Version 1.2.1 - Visit https://ghostbin.com/paste/7nf78 for an up-to-date version!
+# Made by DiDA for iOSGods.com! - Version 1.2.2 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
 
 
 #################################################################################
@@ -61,11 +61,14 @@ case "${1}" in
         case "$(sw_vers -productVersion)" in
             5*|6*|7*|8*) # If iOS 5, 6, 7, or 8 is detected, it will run LipoARM64 to patch the binary
                 printf "*************************************\\n"
-                printf "* iOS 8 or below has been detected. *\\n"
+                printf "* iOS 8 or lower has been detected. *\\n"
                 printf "*************************************\\n\\n"
 
-				"${iosgods_lipoarm64}" "${lipoarm64_binarytarget}"
-				
+		"${iosgods_lipoarm64}" "${lipoarm64_binarytarget}"
+		
+		# Since iOS 8 or lower has been detected, we no longer need the thinned binary we bundled with the .deb so we remove it to free up space
+		rm "${iosgods_binary}"
+		
                 ;;
 
             9*|10*) # If iOS 9+ is detected, apply the thinned binary
