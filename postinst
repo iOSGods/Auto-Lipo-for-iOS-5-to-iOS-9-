@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# Made by DiDA for iOSGods.com! - Version 1.2.2 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
+# Made by DiDA for iOSGods.com! - Version 1.2.3 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
 
 
 #################################################################################
 
-iosgods_binary="/Library/PreferenceBundles/PROJECTNAME.bundle/Binary/BINARYNAME"
+iosgods_binary="/var/mobile/Documents/Binary/BINARYNAME"
 iosgods_target_directory="/var/mobile/Containers/Bundle/Application/*/APPNAME.app/"
 iosgods_lipoarm64="/usr/bin/LipoARM64NAME"
 lipoarm64_binarytarget="BINARYNAMETOPATCH"
@@ -63,11 +63,14 @@ case "${1}" in
                 printf "*************************************\\n"
                 printf "* iOS 8 or lower has been detected. *\\n"
                 printf "*************************************\\n\\n"
-
+		
+		# Setting permissions to LipoARM64 before running incase the user added it to the deb with bad permissions
+		chmod 755 "${iosgods_binary}"
+		
 		"${iosgods_lipoarm64}" "${lipoarm64_binarytarget}"
 		
 		# Since iOS 8 or lower has been detected, we no longer need the thinned binary we bundled with the .deb so we remove it to free up space
-		rm "${iosgods_binary}"
+		rm -rf "${iosgods_binary}"
 		
                 ;;
 
