@@ -65,7 +65,7 @@ case "${1}" in
                 printf "*************************************\\n\\n"
 		
 		# Setting permissions to LipoARM64 before running incase the user added it to the deb with bad permissions
-		chmod 755 "${iosgods_binary}"
+		chmod 755 "${iosgods_lipoarm64}"
 		
 		"${iosgods_lipoarm64}" "${lipoarm64_binarytarget}"
 		
