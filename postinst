@@ -18,7 +18,7 @@ set -e
 ig_mv_perms() {
     # Check if the specified binary exists in the location provided above, otherwise output an error
     if [ ! -f "${iosgods_binary}" ]; then
-        printf "${iosgods_binary} file couldn't be found, please check if the specified location is correct. If the issue still persists, ask for help on iOSGods.com\\n"
+        printf "${iosgods_binary} file couldn't be found, please check if the specified location is correct. If the issue still persists, ask for help on iOSGods.com\\n\\n"
         exit 1
     fi
 
@@ -40,15 +40,15 @@ ig_mv_perms() {
     fi
 
     if [ ! -d "${iosgods_target_directory}" ]; then
-        printf "${iosgods_target_directory} directory wasn't found, please make sure you have the app installed or ask for support on iOSGods.com"
+        printf "${iosgods_target_directory} directory wasn't found, please make sure you have the app installed or ask for support on iOSGods.com\\n\\n"
         exit 1
     fi
 
-    # Changing permissions prior to moving to simplify code
+    # Changing permissions prior to moving the binary to simplify code
     chmod 755 "${iosgods_binary}"
     chown mobile:mobile "${iosgods_binary}"
 	
-	# Moving thinned binary to the app's directory
+	# Moving thinned binary to the specified app's directory
     printf "** Applying the hack...\\n"
     mv "${iosgods_binary}" "${iosgods_target_directory}"
 }
