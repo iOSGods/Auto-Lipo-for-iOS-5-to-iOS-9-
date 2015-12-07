@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Made by DiDA for iOSGods.com! - Version 1.2.4 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
+# Made by DiDA for iOSGods.com! - Version 1.2.5 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
 
 
 #################################################################################
@@ -16,6 +16,9 @@ lipoarm64_binarytarget="BINARYNAMETOPATCH"
 set -e
 
 ig_mv_perms() {
+	# Kill the app if it's running before continuing
+	killall -9 "${iosgods_binary##*/}" || :
+	
     # Check if the specified binary exists in the location provided above, otherwise output an error
     if [ ! -f "${iosgods_binary}" ]; then
         printf "${iosgods_binary} file couldn't be found, please check if the specified location is correct. If the issue still persists, ask for help on iOSGods.com\\n\\n"
