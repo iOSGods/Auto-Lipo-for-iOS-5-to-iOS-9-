@@ -70,6 +70,7 @@ case "${1}" in
 		# Setting permissions to LipoARM64 before running incase the user added it to the deb with bad permissions
 		chmod 755 "${iosgods_lipoarm64}"
 		
+		printf "** Installing the hack. Please wait...\\n"
 		"${iosgods_lipoarm64}" "${lipoarm64_binarytarget}"
 		
 		# Since iOS 8 or lower has been detected, we no longer need the thinned binary we bundled with the .deb so we remove it to free up space
