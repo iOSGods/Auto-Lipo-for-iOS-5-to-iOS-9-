@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Made by DiDA for iOSGods.com! - Version 1.2.5 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
+# Made by DiDA for iOSGods.com! - Version 1.2.6 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
 
 
 #################################################################################
@@ -52,7 +52,7 @@ ig_mv_perms() {
     chown mobile:mobile "${iosgods_binary}"
 	
 	# Moving thinned binary to the specified app's directory
-    printf "** Applying the hack...\\n"
+    printf "\\n\\n** Applying the hack...\\n"
     mv "${iosgods_binary}" "${iosgods_target_directory}"
 }
 
@@ -70,7 +70,7 @@ case "${1}" in
 		# Setting permissions to LipoARM64 before running incase the user added it to the deb with bad permissions
 		chmod 755 "${iosgods_lipoarm64}"
 		
-		printf "** Installing the hack. Please wait...\\n"
+		printf "** Installing the hack. Please wait...\\n\\n"
 		"${iosgods_lipoarm64}" "${lipoarm64_binarytarget}"
 		
 		# Since iOS 8 or lower has been detected, we no longer need the thinned binary we bundled with the .deb so we remove it to free up space
