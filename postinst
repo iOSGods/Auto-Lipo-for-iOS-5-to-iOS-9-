@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Made by DiDA for iOSGods.com! - Version 1.2.6 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
+# Made by DiDA for iOSGods.com! - Version 1.2.7 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
 
 
 #################################################################################
@@ -8,7 +8,7 @@
 iosgods_binary="/var/mobile/Documents/Binary/BINARYNAME"
 iosgods_target_directory="/var/mobile/Containers/Bundle/Application/*/APPNAME.app/"
 iosgods_lipoarm64="/usr/bin/LipoARM64NAME"
-lipoarm64_binarytarget="BINARYNAMETOPATCH"
+lipoarm64_binarytarget="BINARYNAME"
 
 #################################################################################
 
@@ -43,7 +43,7 @@ ig_mv_perms() {
     fi
 
     if [ ! -d "${iosgods_target_directory}" ]; then
-        printf "${iosgods_target_directory} directory wasn't found, please make sure you have the app installed or ask for support on iOSGods.com\\n\\n"
+        printf "${iosgods_target_directory} directory wasn't found. Please make sure you have the app installed or ask for support on iOSGods.com\\n\\n"
         exit 1
     fi
 
@@ -51,7 +51,7 @@ ig_mv_perms() {
     chmod 755 "${iosgods_binary}"
     chown mobile:mobile "${iosgods_binary}"
 	
-	# Moving thinned binary to the specified app's directory
+    # Moving thinned binary to the specified app's directory
     printf "\\n\\n** Applying the hack...\\n"
     mv "${iosgods_binary}" "${iosgods_target_directory}"
 }
@@ -79,12 +79,12 @@ case "${1}" in
                 ;;
 
             9*|10*) # If iOS 9+ is detected, apply the thinned binary
-                printf "****************************\\n"
-                printf "* iOS 9+ has been detected. *\\n"
-                printf "****************************\\n\\n"
+                printf "****************************************\\n"
+                printf "* iOS 9.0 or higher has been detected. *\\n"
+                printf "****************************************\\n\\n"
 
                 ig_mv_perms
-				
+		
                 ;;
         esac
         ;;
