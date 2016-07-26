@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Made by DiDA for iOSGods.com! - Version 1.2.7 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
+# Made for iOSGods.com! - Version 1.3.0 - Visit https://github.com/iOSGods/Auto-Lipo-for-iOS-5-to-iOS-9-/ for an up-to-date version!
 
 
 #################################################################################
@@ -78,13 +78,24 @@ case "${1}" in
 		
                 ;;
 
-            9*|10*) # If iOS 9+ is detected, apply the thinned binary
+		9.0*|9.1*|9.2*) # If iOS 9.0.x, 9.1, 9.2.x is detected, apply the thinned binary
                 printf "****************************************\\n"
                 printf "* iOS 9.0 or higher has been detected. *\\n"
                 printf "****************************************\\n\\n"
 
                 ig_mv_perms
-		
+                
+                ;;
+                
+                9*|10*) # If iOS 9.3 and higher is detected, apply the thinned binary to the new app location
+		printf "****************************************\\n"
+		printf "* iOS 9.3 or higher has been detected. *\\n"
+		printf "****************************************\\n\\n"
+				
+		# Temporary workaround for iOS 9.3 and higher
+		ln -s -f /var/containers/Bundle /var/mobile/Containers || :
+		ig_mv_perms
+
                 ;;
         esac
         ;;
